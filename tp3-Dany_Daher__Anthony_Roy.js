@@ -10,4 +10,3 @@ var approximationPI=function (p) { //fonction qui attend la valeur p
 
 var approximation = approximationPI(20000); //On pose p=20000
 	print(approximation);
-
