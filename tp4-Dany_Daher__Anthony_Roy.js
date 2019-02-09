@@ -24,8 +24,7 @@ var chanceChevalier; do chanceChevalier = Math.random(); while (chanceChevalier<
     
     print("Le combat débute!")
 
-while   (viesChevalier!=0 && viesDragon!=0)
-    {
+do {
     viesDragon=attaquer(viesDragon,degatChevalier);
     print("==================================");
     print("Vies chevalier :" + viesChevalier);
@@ -33,23 +32,16 @@ while   (viesChevalier!=0 && viesDragon!=0)
         if (Math.random()>chanceChevalier) viesChevalier=attaquer(viesChevalier,degatDragon);
         else print("---\nLe chevalier a évité l'attaque!");
 }
-
+while   (viesChevalier!=0 && viesDragon!=0);
 
 print("==================================");
 print("Vies chevalier :" + viesChevalier);
 print("Vies Dragon :" + viesDragon);
+print("---")
+
 
 if (viesChevalier==0) print ("Le dragon est sorti vainqueur!! \u2694");
 else print ("Le chevalier est sorti vainqueur!! \u2694");
-
-
-    
-    
-
-
-
-
-
 
 
     
