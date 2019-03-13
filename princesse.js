@@ -116,8 +116,7 @@ var findSolution =function(grid) {
 
         }
         
-        if (lPos > 0) {              ///ou ySlot? ou posPrincesse[0]?  
-            if (setOfPaths[hPos][lPos-1] == 'p'){ 
+        if (lPos > 0) {              
                 pathFound = true;
                 break;
             }
