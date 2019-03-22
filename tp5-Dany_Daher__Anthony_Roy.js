@@ -30,12 +30,15 @@ function genererCreature() {
     return enregistrement;
 }
 
-function 
+
 function remplirMonde(m,nb) {
+    var verifier=[]						//verifier si le nom est deja utiliser
     
     for(var creature=0 ; creature<nb; creature++) {
+        if (enregistrement != undefined) verifier.push(enregistrement[0])	//avant la creation de  la premiere creature
         genererCreature();
-        monde[creature] = enregistrement;   
+        while (verifier.indexOf(enregistrement[0])!= -1) genererCreature();	//regenerer creature tant qu'elle n'a pas un nom unique
+        monde[creature] = enregistrement;
     }
     return monde;
 }
