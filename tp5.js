@@ -26,12 +26,12 @@ var genererCreature = function(){
 }
 
 var remplirMonde = function(m,nb){
-    var verifier=[]						
+    var verifier=[]                     
     
     for(var creature=0 ; creature<nb; creature++) {
-        if (enregistrement != undefined) verifier.push(enregistrement[0])	
+        if (enregistrement != undefined) verifier.push(enregistrement[0])   
         genererCreature();
-        while (verifier.indexOf(enregistrement[0])!= -1) genererCreature();	
+        while (verifier.indexOf(enregistrement[0])!= -1) genererCreature(); 
         monde[creature] = enregistrement;
     }
     return monde;
@@ -44,11 +44,8 @@ var afficherMonde = function(m){
         print("> Creature " + creature + " : " + monde[creature-1][0] + " - niveau " + monde[creature-1][1]);
     }
     print("-- FIN --")
-   	print('"');
+    print('"');
 }
              
 remplirMonde(monde,25); 
 afficherMonde(monde);
-
-
-        
