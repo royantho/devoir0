@@ -9,12 +9,12 @@ var genererNom = function(){
     var sylList = ["la","cou", "ca", "ra", "cha", "pi", "mu", 
                       "rho", "na", "ne", "ki", "ko", "kon", "miss", "sal"];
     var sylNb = randomBetween(5,2);
-    var syl = randomBetween(sylList.length-1,0);
+    var syl = randomBetween(sylList.length-1,0); //corrigé: (-1)
     nom = '';
     for(i=1; i<sylNb; i++){
         
-        nom += sylList[syl];
-        syl = randomBetween(sylList.length-1,0);
+        nom += sylList[syl]; //corriger: enlever var
+        syl = randomBetween(sylList.length-1,0); //corrigé: (-1)
         
     }
     return nom;
@@ -24,7 +24,7 @@ var genererCreature = function(){
     
     var nom = genererNom();
     var niveau = randomBetween(100,1);
-    enregistrement = [nom, niveau];
+    enregistrement = [nom, niveau]; //corriger: enlever var
     return enregistrement;
 }
 
