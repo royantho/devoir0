@@ -54,7 +54,7 @@ function updateHeader(username) {
 }
 
 var searchMovies= function(movies, searchValue) {
-	movieList=[];
+	var movieList=[];
 
 	for (var i=0; i<movies.length; i++) {
 		for (var j=0; j<movies[i].title.length; j++) {
@@ -65,28 +65,74 @@ var searchMovies= function(movies, searchValue) {
 		}
 	}
 	movies=movieList
-	console.log(movieList)
+	
 
 	return movies
 }
 
 function sortMovies(movies,isAscending) {
-	do {
-		change = false;
-		for (var i=0; i<movies.length-1; i++) {
-			if (movies[i+1].title.toUpperCase() < movies[i].title.toUpperCase()) {
-				var swap = movies[i];
-				movies[i] = movies[i+1];
-				movies[i+1] = swap;
-				change = true;
-			}
-		}
-	} while (change);
+	if (isAscending==true){
+		do {
+		var change = false;
+			for (var i=0; i<movies.length-1; i++) {
+				if (movies[i+1].title.toUpperCase() < movies[i].title.toUpperCase()) {
+					var swap = movies[i];
+					movies[i] = movies[i+1];
+					movies[i+1] = swap;
+					change = true;
+				}
+			}	
+		} while (change);
+	} else {
+		do {
+		var change = false;
+			for (var i=0; i<movies.length-1; i++) {
+				if (movies[i+1].title.toUpperCase() > movies[i].title.toUpperCase()) {
+					var swap = movies[i];
+					movies[i] = movies[i+1];
+					movies[i+1] = swap;
+					change = true;
+				}
+			}	
+		} while (change);
+
+	}
+	console.log(movies)
 	return movies;	
 }
+
+function populateSelect(movies) {
+	var genreList = [];
+	for (var i=0; i<movies.length; i++) {
+		for (var j=0; j<movies[i].genres.length; j++) {
+			if (genreList.indexOf(movies[i].genres[j])==-1) {
+				genreList.push(movies[i].genres[j]);
+			}
+		}
+	} 
+	console.log(movies)
+	return genreList
+}
+
+function filterMovies(movies, genreFilter) {
+	var movieList = [];
+	//console.log(movies) ?????? check quesque ca ecrit dans chrome
+	//console.log(genreFilter);
+	for (var i = 0; i<movies.length; i++) {
+		console.log(movies[i].genres.indexOf(genreFilter))
+		if (movies[i].genres.indexOf(genreFilter)!=-1) {
+			movieList.push(movies[i])
+		}
+	}
+	//console.log(movieList); 
+	return movieList;
+}
+
 var SHOW_SAMPLE = true
 
 
 
 //document.getElementsByClassName('c-main_list.o-layout.o-wrapper.-gutter-small').innerHTML="aksldfa";
-//ASDFB1!sdf
+/* 
+ASDFB/sdf
+*/
