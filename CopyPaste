@@ -1,0 +1,52 @@
+function validateUsername(value) {
+	//Si au moin un des conditions est false, la fct retourne false
+	if (value.length<5) return false;
+	if (value.indexOf("@")==-1) {
+		for (i=0 ; i<value.length; i++) {
+			var char=value.charAt(i)
+			if (i<5){
+				if (char < "A" || char > "z" || 
+					(char > "Z" && char <"a")) return false
+			} else {
+				if (!(char >= "0" && char <= "9") &&
+					!(char >= "A" && char <= "Z") &&
+					!(char >= "a" && char <= "z")) return false
+			}
+		} 
+	} else {
+		for (i=0 ; i<value.indexOf("@")+1; i++) {
+			var char=value.charAt(i)
+			var slice=value.slice(i)
+			if (i<value.indexOf("@")) {
+				if (!(char >= "0" && char <= "9") &&
+					!(char >= "a" && char <= "z") && 
+					char != ".") return false
+			} else {
+				if (!(slice == "@homeflix.ca" ||
+					  slice == "@homeflix.com" ||
+					  slice == "@homeflix.org")) return false
+			}
+
+		} 
+ 	}
+	return true
+}
+
+
+function validatePassword(value) {
+	if (value.length<8 || value.length>16) return false
+    var conMaj=false;
+	var conSpec=false;
+	var conChif=false;
+	for (i=0 ; i<value.length; i++) {
+		var char=value.charAt(i);
+		if (char >= "0" && char <= "9") conChif=true;
+		if (!(char >= "0" && char <= "9") &&
+			!(char >= "a" && char <= "z") && 
+			!(char >= "A" && char <= "Z")) conSpec=true;
+		if (char >= "A" && char <= "Z") conMaj=true;
+    }
+	return conChif&&conSpec&&conMaj;
+}
+
+var SHOW_SAMPLE = true
